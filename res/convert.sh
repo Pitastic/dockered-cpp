@@ -3,6 +3,9 @@
 PWD=`pwd`
 BLACKLIST=("*.css *.js not-this-file.js")
 
+# Output leeren
+rm -rf $PWD/output/*
+
 echo
 echo "Compile JS mit Babel (mit babel.config.js)"
 $PWD/node_modules/.bin/babel $PWD/input --out-dir $PWD/output
@@ -10,7 +13,7 @@ $PWD/node_modules/.bin/babel $PWD/input --out-dir $PWD/output
 echo
 echo "Minify JS (mit javascript-minifier.com)"
 # Loop über JS Output Ordner
-for js_files in output/*.js; do
+for js_files in $PWD/output/*.js; do
 	js_file=`basename $js_files`
 	if [[ " ${BLACKLIST[*]} " == *" $js_file "* ]]; then
 		echo "- $js_file wird ausgelassen"
@@ -23,13 +26,13 @@ done
 echo
 echo "Minify CSS (mit css-minifier.com)"
 # Loop über CSS Ordner
-for css_files in input/*.css; do
+for css_files in $PWD/input/*.css; do
 	css_file=`basename $css_files`
 	if [[ " ${BLACKLIST[*]} " == *" $css_file "* ]]; then
 		echo "- $css_file wird ausgelassen"
 	else
 		echo "+ sende $css_file"
-		wget -q --post-data="input=`cat input/$css_file`" --output-document=output/$css_file https://cssminifier.com/raw
+		wget -q --post-data="input=`cat $PWD/input/$css_file`" --output-document=$PWD/output/$css_file https://cssminifier.com/raw
 	fi
 done
 
