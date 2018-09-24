@@ -17,7 +17,6 @@ Die JS-minifier parsen erst den Code und geben ihn gekürtzt wieder zurück. Je 
 
 ## Installation
 
-1. `input` und `output` Ordner leeren
 1. Repository klonen `git clone`
 2. Dockerimage herstellen mit Hilfe des Skripts `bash build.sh`
 3. Konfigurieren des Polyfills `babel.config.js` (<a href="https://babeljs.io/docs/en/options">mehr dazu in den docs</a>)
