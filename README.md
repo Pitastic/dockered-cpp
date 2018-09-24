@@ -2,8 +2,8 @@
 Auto Mini- und Polyfier in einer Dockerumgebung über
 
 - babeljs.io (Polyfill)
-- javascript-minifier.com (jsminify)
-- css-minifier.com (cssminify)
+- <a href="javascript-minifier.com">javascript-minifier.com</a> (jsminify)
+- <a href="css-minifier.com">css-minifier.com</a> (cssminify)
 
 Beim Start des Dockercontainers werden passende Dateien aus `input` in diesen drei Schritten bearbeitet und bei `output` wieder abgelegt.
 
@@ -24,6 +24,7 @@ Die JS-minifier parsen erst den Code und geben ihn gekürtzt wieder zurück. Je 
 
 # Usage
 
-1. Dateien in den `input` Ordner verschieben
-2. `bash start.sh` aufrufen
-3. Dateien aus dem `output` Ordner entnehmen und beide Ordner leeren
+1. Die Ordner `input` und `output` leeren
+2. Dateien in den `input` Ordner verschieben
+3. `bash start.sh` aufrufen
+4. Dateien aus dem `output` Ordner entnehmen und beide Ordner leeren
