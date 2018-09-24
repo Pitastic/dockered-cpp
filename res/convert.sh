@@ -1,27 +1,30 @@
 #!/bin/bash
 
 PWD=`pwd`
-BLACKLIST=("*.css *.js not-this-file.js")
+
+# Dateinamen, die ausgelassen werden (kein RegEx!)
+BLACKLIST=("*.css *.js")
 
 # Output leeren
 rm -rf $PWD/output/*
 
 echo
 echo "Compile JS mit Babel (mit babel.config.js)"
-$PWD/node_modules/.bin/babel $PWD/input --out-dir $PWD/output
+$PWD/node_modules/.bin/babel $PWD/input --out-dir $PWD/output --ignore '**/*.min.js'
 
 echo
 echo "Minify JS (mit javascript-minifier.com)"
+echo "(disabled...bisher keinen brauchbaren Interpreter gefunden)"
 # Loop über JS Output Ordner
-for js_files in $PWD/output/*.js; do
-	js_file=`basename $js_files`
-	if [[ " ${BLACKLIST[*]} " == *" $js_file "* ]]; then
-		echo "- $js_file wird ausgelassen"
-	else
-		echo "+ sende $js_file"
-		wget -q --post-data="input=`cat output/$js_file`" --output-document=output/$js_file https://javascript-minifier.com/raw
-	fi
-done
+#for js_files in $(ls $PWD/output/*.js | grep -vi "\.min\."); do
+#	js_file=`basename $js_files`
+#	if [[ " ${BLACKLIST[*]} " == *" $js_file "* ]]; then
+#		echo "- $js_file wird ausgelassen"
+#	else
+#		echo "+ sende $js_file"
+#		wget -q --post-data="input=`cat output/$js_file`" --output-document=output/$js_file https://javascript-minifier.com/raw
+#	fi
+#done
 
 echo
 echo "Minify CSS (mit css-minifier.com)"
