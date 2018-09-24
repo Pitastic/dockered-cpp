@@ -9,6 +9,8 @@ Beim Start des Dockercontainers werden passende Dateien aus `input` in diesen dr
 
 Die JS-minifier parsen erst den Code und geben ihn gekürtzt wieder zurück. Je nachdem nach welchem Standard programmiert wurde, kann es hilfreich sein, einzelne Dateien vom jsminifier auszuschließen (und Fehler beim Parsen zu verhinden). Dafür gibt es eine Blacklist im Skript `convert.sh`.
 
+Bisher habe ich noch keinen brauchbaren Interpreter gefunden, der z.B. auch mit jquery Syntax zurecht kommt. JSMinify ist deaktiviert.
+
 # Setup
 
 ## Vorraussetzungen
