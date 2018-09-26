@@ -1,0 +1,19 @@
+{
+  "name": "ccp_project",
+  "version": "1.0.0",
+  "description": "Compile, Polyfill, Pack.... dockerized !",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pitastic/dockered-cpp.git"
+  },
+  "author": "Pitastic",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Pitastic/dockered-cpp/issues"
+  },
+  "homepage": "https://github.com/Pitastic/dockered-cpp#readme"
+}

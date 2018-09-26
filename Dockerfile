@@ -1,9 +1,17 @@
 FROM node:8
 
-RUN mkdir /root/babel-project
-WORKDIR /root/babel-project
+RUN mkdir /root/project
+WORKDIR /root/project
+COPY ./build-config/package.json .
 
-RUN npm install --save-dev @babel/core @babel/cli @babel/preset-env
-RUN npm install --save @babel/polyfill
+RUN npm install -g gulp
+RUN npm install --save-dev \
+	gulp \
+	gulp-babel \
+	@babel/core \
+	@babel/preset-env
 
-ENTRYPOINT ["bash", "./res/convert.sh"]
+#RUN npm install --save-dev @babel/core 
+#RUN npm install --save @babel/polyfill
+
+#ENTRYPOINT ["bash", "./res/convert.sh"]
