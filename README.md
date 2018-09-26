@@ -1,15 +1,12 @@
-# mini-poly-fier
-Auto Mini- und Polyfier in einer Dockerumgebung über
+# Dockered C(ompile) P(olyfill) P(ack)
 
-- babeljs.io (Polyfill)
-- <a href="javascript-minifier.com">javascript-minifier.com</a> (jsminify)
-- <a href="css-minifier.com">css-minifier.com</a> (cssminify)
+Ein Dockercontainer für einen einfachen Workflow beim Deploy !
 
-Beim Start des Dockercontainers werden passende Dateien aus `input` in diesen drei Schritten bearbeitet und bei `output` wieder abgelegt.
+CPP nutzt <a href="https://gulpjs.com/">gulpjs</a> und <a href="https://babeljs.io">babeljs</a> in einem Dockercontainer mit <a href="https://nodejs.org/">NodeJS</a> um Javascript Code in ältere Standards zu übersetzen (compile), ggf. nicht vorhandene Funktionen nachliefert (polyfill) und packt alle Abhängigkeiten zu diesen Code in so wenig Dateien wie möglich (pack).
 
-Die JS-minifier parsen erst den Code und geben ihn gekürtzt wieder zurück. Je nachdem nach welchem Standard programmiert wurde, kann es hilfreich sein, einzelne Dateien vom jsminifier auszuschließen (und Fehler beim Parsen zu verhinden). Dafür gibt es eine Blacklist im Skript `convert.sh`.
+Außerdem werden `js` und `css` Dateien noch minified.
 
-Bisher habe ich noch keinen brauchbaren Interpreter gefunden, der z.B. auch mit jquery Syntax zurecht kommt. JSMinify ist deaktiviert.
+Über die Configdatei `package.json` ist der Workflow und der Dockercontainer schnell erweiterbar.
 
 # Setup
 
@@ -20,13 +17,11 @@ Bisher habe ich noch keinen brauchbaren Interpreter gefunden, der z.B. auch mit 
 ## Installation
 
 1. Repository klonen `git clone`
-2. Dockerimage herstellen mit Hilfe des Skripts `bash build.sh`
-3. Konfigurieren des Polyfills `babel.config.js` (<a href="https://babeljs.io/docs/en/options">mehr dazu in den docs</a>)
-4. Ggf. Dateien in der Blacklist aufnehmen in `convert.sh` (Leerzeichen getrennt)
+2. Konfigurieren der Abhängikeiten in `package.json` (<a href="https://docs.npmjs.com/files/package.json">mehr dazu in den docs</a>)
+3. Dockerimage herstellen mit Hilfe des Skripts `bash build.sh`
+4. (optional) weitere Abhängikeiten hinzufügen (Schritt 2) und Docker-Image erneut builden (Schritt 3)
 
 # Usage
 
-1. Die Ordner `input` und `output` leeren
-2. Dateien in den `input` Ordner verschieben
-3. `bash start.sh` aufrufen
-4. Dateien aus dem `output` Ordner entnehmen und beide Ordner leeren
+1. Konfigurieren der durchzuführenden Aktionen in `gulpfile.js` (<a href="https://github.com/gulpjs/gulp/blob/v3.9.1/docs/API.md">mehr dazu in den docs</a>)
+2. work in progress...
