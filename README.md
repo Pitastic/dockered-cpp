@@ -8,20 +8,28 @@ Außerdem werden `js` und `css` Dateien noch minified.
 
 Über die Configdatei `package.json` ist der Workflow und der Dockercontainer schnell erweiterbar.
 
-# Setup
+## Setup
 
-## Vorraussetzungen
+### Vorraussetzungen
 
 - docker
 
-## Installation
+### Installation
 
 1. Repository klonen `git clone`
 2. Konfigurieren der Abhängikeiten in `package.json` (<a href="https://docs.npmjs.com/files/package.json">mehr dazu in den docs</a>)
 3. Dockerimage herstellen mit Hilfe des Skripts `bash build.sh`
 4. (optional) weitere Abhängikeiten hinzufügen (Schritt 2) und Docker-Image erneut builden (Schritt 3)
 
-# Usage
+### Usage
 
 1. Konfigurieren der durchzuführenden Aktionen in `gulpfile.js` (<a href="https://github.com/gulpjs/gulp/blob/v3.9.1/docs/API.md">mehr dazu in den docs</a>)
 2. work in progress...
+
+## Debugging
+
+Kommentiere in der `Dockerfile` die Entrypointzeile mit einem `#` aus und setze am Ende des letzten Kommanodos in `start.sh` den Befehl `bash`.
+
+Erstelle auf dieser Grundlage ein neues Docker-Image (wie oben).
+
+Beim nächsten Start (wie oben) gelangst du in die Bash des Containers.
