@@ -32,7 +32,7 @@ gulp.task('css-standard', function() {
 });
 
 
-gulp.task('js1', function() {
+gulp.task('js-pitastic', function() {
 	return gulp.src(jsFiles[0])
 	.pipe(babel({
 		minified: true,
@@ -47,16 +47,11 @@ gulp.task('js1', function() {
 			}]
 		]
 	}))
-	.pipe( vsource ( entry ) )
-	.pipe( vbuffer () )
-	.pipe( sourcemaps.init( { loadMaps: true } ) )
-	.pipe( uglify() )
-	.pipe( sourcemaps.write('./') )
 	.pipe( gulp.dest('output/js/') )
 });
 
 
-gulp.task('js-extended', function() {
+gulp.task('js-ac', function() {
 	jsFiles.map(function( entry ){
 		// 1. browserify
 		return browserify({
@@ -84,6 +79,6 @@ gulp.task('js-extended', function() {
 });
 
 
-gulp.task('default', ['css-standard', 'js-extended'], function(){
+gulp.task('default', ['css-standard', 'js-pitastic'], function(){
 	//gulp.watch('input', ['js'])
 });

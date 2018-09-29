@@ -8,7 +8,7 @@ Compile, transform, polyfill and pack your js/css/scss code as you like for your
 
 ### Requirements
 
-- just docker
+- just <a href="https://docker.io">docker</a>
 
 ### Install
 
@@ -31,7 +31,7 @@ The `package-json` and `gulpfile.js` (execept for ***AUTO_MODE***) are not chang
 
 #### gulpfile.js
 
-The given `gulpfile.js` is filled with code from a great tutorial from <a href="https://www.youtube.com/watch?v=ax0ykSVPufs">Alessandro Castellani</a> (THANKS !).
+The task `js-ac` in the `gulpfile.js` is taken from a great tutorial from <a href="https://www.youtube.com/watch?v=ax0ykSVPufs">Alessandro Castellani</a> (THANKS !). It gives a good overview what's possible and useful. However the `js-pitastic` task is my preferred way. Your're welcome to create your own.
 
 You can edit/add/remove tasks in the `gulpfile.js`. You can also specify which tasks to run at the end of the script. Just pass the task names into the array
 
