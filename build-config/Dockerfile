@@ -14,9 +14,15 @@ RUN npm install -g \
 RUN npm install --save-dev \
 	gulp \
 	gulp-babel \
+	gulp-uglify \
+	gulp-sourcemaps \
 	@babel/core \
 	@babel/preset-env \
-	@babel/polyfill
+	@babel/polyfill \
+	babelify \
+	browserify \
+	vinyl-source-stream \
+	vinyl-buffer
 
 RUN npm install --save-dev \
 	@babel/polyfill
