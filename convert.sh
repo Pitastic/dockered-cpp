@@ -45,5 +45,5 @@ gulp
 
 echo
 echo "Output:"
-tree $PWD/output
+tree -sh $PWD/output
 echo

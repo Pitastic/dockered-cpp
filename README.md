@@ -51,6 +51,12 @@ in this section.
 
 At the beginning of the file the modules and filenames are defined. At every startup process a script is searching for a jsFiles or cssFiles definition. If you define `AUTO_MODE` the js-array will be replaced with a list of files (with the right extension) from the input folder. Take care of that if you want to specify others files or just some files instead.
 
+I needn't to use the filelist. Use the source folder (e.g. `jsFolder`) variable like this:
+
+```javascript
+gulp.src( jsFolder + "**/*.js" )
+```
+
 #### more modules
 
 If you want to use more modules you have to install them in the container during the build process. Therefore you have to add the install command (or just the package name) in the right section of the`Dockerfile`. You have to choose by yourself under consideration if the module has to be installed globally first (`-g` flag) and if it's a production dependency (`--save`) or a dev-dependency (`--save-dev`).
