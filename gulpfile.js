@@ -1,14 +1,14 @@
 /*
 ========= Modules
 */
-var gulp = require('gulp');
 var babel = require('gulp-babel');
-var uglify = require('gulp-uglify');
-var browserify = require('browserify');
 var babelify = require('babelify');
-var vsource = require('vinyl-source-stream');
+var browserify = require('browserify');
+var cssmin = require('gulp-cssmin');
+var uglify = require('gulp-uglify');
 var sourcemaps = require('gulp-sourcemaps');
 var vbuffer = require('vinyl-buffer');
+var vsource = require('vinyl-source-stream');
 
 
 /*
@@ -37,8 +37,8 @@ if (AUTO_MODE) {
 */
 gulp.task('css-standard', function() {
 	return gulp.src(cssFiles)
-	.pipe( uglify() )
-	.pipe(gulp.dest('output/css/'));
+	.pipe( cssmin() )
+	.pipe( gulp.dest('output/css/') );
 });
 
 
