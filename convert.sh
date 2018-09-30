@@ -28,12 +28,12 @@ CONCAT_JS+=" ]"
 echo
 echo "Replace file list for AUTO_MODE (css)"
 #echo "${CONCAT_CSS}"
-sed -E -e "s|var cssFiles[[:blank:]]?=[[:blank:]]?AUTO_MODE.*|var cssFiles = ${CONCAT_CSS}|" $PWD/gulpfile.js > /tmp/gulp.tmp && cp /tmp/gulp.tmp $PWD/gulpfile.js
+sed -E -e "s|var auto_cssFiles[[:blank:]]?=.*|var auto_cssFiles = ${CONCAT_CSS}|" $PWD/gulpfile.js > /tmp/gulp.tmp && cp /tmp/gulp.tmp $PWD/gulpfile.js
 
 echo
 echo "Replace file list for AUTO_MODE (js)"
 #echo "${CONCAT_JS}"
-sed -E -e "s|var jsFiles[[:blank:]]?=[[:blank:]]?AUTO_MODE.*|var jsFiles = ${CONCAT_JS}|" $PWD/gulpfile.js > /tmp/gulp.tmp && cp /tmp/gulp.tmp $PWD/gulpfile.js
+sed -E -e "s|var auto_jsFiles[[:blank:]]?=.*|var auto_jsFiles = ${CONCAT_JS}|" $PWD/gulpfile.js > /tmp/gulp.tmp && cp /tmp/gulp.tmp $PWD/gulpfile.js
 
 # Show IN, start gulp and show OUT
 echo
