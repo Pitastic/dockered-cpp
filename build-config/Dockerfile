@@ -16,6 +16,7 @@ RUN npm install --save-dev \
 	gulp-babel \
 	gulp-uglify \
 	gulp-sourcemaps \
+	gulp-cssmin \
 	@babel/core \
 	@babel/preset-env \
 	@babel/polyfill \
@@ -24,7 +25,7 @@ RUN npm install --save-dev \
 	vinyl-source-stream \
 	vinyl-buffer
 
-RUN npm install --save-dev \
+RUN npm install --save \
 	@babel/polyfill
 
 ENTRYPOINT ["bash", "./convert.sh"]
