@@ -37,7 +37,7 @@ sed -E -e "s|var auto_jsFiles[[:blank:]]?=.*|var auto_jsFiles = ${CONCAT_JS}|" $
 
 # Show IN, start gulp and show OUT
 echo
-echo "input:"
+echo "input (folders) :"
 tree -d $PWD/input | grep -v "\/root\/project"
 du -sh input/*
 echo
@@ -45,7 +45,7 @@ echo
 gulp
 
 echo
-echo "output:"
+echo "output (folders):"
 tree -shd $PWD/output | grep -v "\/root\/project"
 du -sh output/*
 echo
