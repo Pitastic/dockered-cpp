@@ -26,24 +26,31 @@ CONCAT_JS+=" ]"
 
 # Replacements for filelists in gulpfile.js
 echo
-echo "Replace file list for AUTO_MODE (css):"
-echo "${CONCAT_CSS}"
+echo "Replace file list for AUTO_MODE (css)"
+#echo "${CONCAT_CSS}"
 sed -E -e "s|var cssFiles[[:blank:]]?=[[:blank:]]?AUTO_MODE.*|var cssFiles = ${CONCAT_CSS}|" $PWD/gulpfile.js > /tmp/gulp.tmp && cp /tmp/gulp.tmp $PWD/gulpfile.js
 
 echo
-echo "Replace file list for AUTO_MODE (js):"
-echo "${CONCAT_JS}"
+echo "Replace file list for AUTO_MODE (js)"
+#echo "${CONCAT_JS}"
 sed -E -e "s|var jsFiles[[:blank:]]?=[[:blank:]]?AUTO_MODE.*|var jsFiles = ${CONCAT_JS}|" $PWD/gulpfile.js > /tmp/gulp.tmp && cp /tmp/gulp.tmp $PWD/gulpfile.js
 
 # Show IN, start gulp and show OUT
 echo
-echo "Input:"
-tree -sh $PWD/input
+echo "input:"
+tree -d $PWD/input | grep -v "\/root\/project"
+du -sh input/*
 echo
 
 gulp
 
 echo
-echo "Output:"
-tree -sh $PWD/output
+echo "output:"
+tree -shd $PWD/output | grep -v "\/root\/project"
+du -sh output/*
 echo
+
+# Fix permissions
+chown -R "${OWNER_USER}":"${OWNER_GROUP}" $PWD/output/*
+
+exit 0
