@@ -29,11 +29,17 @@ If you have a running docker instance on your system the 'installation' breaks d
 
 The `package-json` and `gulpfile.js` (execept for ***AUTO_MODE***) are not change at container runtime. You can edit your files as you like.
 
-#### gulpfile.js
+`gulpfile.js` is just a symbolic link to one of the files in the `gulpfiles/` folder. By default the `gulpfiles/000-default.js` is used. You could edit this file or you can create your own. If you create one or if you would like to use multiple gulpfiles (e.g. for diffrent projects), create a `.js` file in the `gulpfiles/` folder and update the symbolic link to your file:
 
-The task `js-ac` in the `gulpfile.js` is taken from a great tutorial from <a href="https://www.youtube.com/watch?v=ax0ykSVPufs">Alessandro Castellani</a> (THANKS !). It gives a good overview what's possible and useful. However the `js-pitastic` task is my preferred way. Your're welcome to create your own.
+```
+ln -sf gulpfiles/my-own-gulpfile.js gulpfile.js
+```
 
-You can edit/add/remove tasks in the `gulpfile.js`. You can also specify which tasks to run at the end of the script. Just pass the task names into the array
+#### Standard gulpfile 000-default.js
+
+The task `js-ac` is taken from a great tutorial from <a href="https://www.youtube.com/watch?v=ax0ykSVPufs">Alessandro Castellani</a> (THANKS !). It gives a good overview what's possible and useful. However the `js-pitastic` task is my preferred way. Your're welcome to create your own.
+
+You can edit/add/remove tasks in this file or use your own as described above. You can also specify which tasks to run at the end of the script. Just pass the task names into the array
 
 ```javascript
 gulp.task('default', ["__HERE__"])
