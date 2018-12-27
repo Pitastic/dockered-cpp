@@ -53,4 +53,9 @@ echo
 # Fix permissions
 chown -R "${OWNER_USER}":"${OWNER_GROUP}" $PWD/output/*
 
+# Input leeren
+rm -rf $PWD/input/css/*
+rm -rf $PWD/input/js/*
+
+
 exit 0
