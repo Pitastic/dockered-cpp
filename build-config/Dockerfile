@@ -17,6 +17,10 @@ RUN npm install --save-dev \
 	gulp-uglify \
 	gulp-sourcemaps \
 	gulp-cssmin \
+	gulp-concat \
+	gulp-if \
+	gulp-tap \
+	gulp-rename \
 	@babel/core \
 	@babel/preset-env \
 	@babel/polyfill \

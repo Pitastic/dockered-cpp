@@ -13,4 +13,4 @@ docker run -it --rm --name=CompilePolyfillPack \
 -v $PFAD_AUF_HOST/output:$PFAD_IN_DOCKER/output \
 -e OWNER_USER="${OWNER_USER}" \
 -e OWNER_GROUP="${OWNER_GROUP}" \
-dockered_cpp:latest
+dockered_cpp:latest bash
