@@ -1,3 +1,7 @@
+# THIS CODE IS NOT MAINTAINED ANYMORE
+
+**Some of the dependencies got Security Alerts but I am not going to clean the code. Feel free to fork !**
+
 # Dockered C(ompile) P(olyfill) P(ack)
 
 ...is an easy to use workflow which uses a docker container with <a href="https://gulpjs.com/">gulpjs</a> and some modules like <a href="https://babeljs.io">babel</a>, <a href="https://browserify.org">browserify</a> and <a href="https://github.com/gulpjs/vinyl">vinyl</a> in a <a href="https://nodejs.org/">NodeJS</a> environment.
